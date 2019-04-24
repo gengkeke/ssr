@@ -11,7 +11,7 @@ chmod +x shadowsocks-all.sh
 接下来会有几个参数需要选择，依次为：
 
 1.提示选择哪个版本安装，我们输入2后按回车，即选择SSR安装。
-![](images\1.jpg)
+![image](https://github.com/gengkeke/ssr/images/1.jpg)
 2.然后会提示设置SSR密码，输入自定义密码后按回车，建议不要使用默认密码。
 ![](images\2.jpg)
 
