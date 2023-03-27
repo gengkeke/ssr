@@ -46,7 +46,15 @@ chmod +x shadowsocks-all.sh
 
 ![image](https://github.com/gengkeke/ssr/blob/master/ssr/images/9.jpg)
 
+修改端口
 
+```shell
+
+vi /etc/shadowsocks-r/config.json
+
+/etc/init.d/shadowsocks-r restart
+
+```
 
 
 
