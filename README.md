@@ -5,7 +5,15 @@ wget --no-check-certificate -O shadowsocks-all.sh https://raw.githubusercontent.
 
 chmod +x shadowsocks-all.sh
 
+# redhat 9 ->看这里  https://docs.fedoraproject.org/en-US/epel/
+
+# subscription-manager repos --enable codeready-builder-for-rhel-9-$(arch)-rpms
+# dnf install https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
+
 ./shadowsocks-all.sh 2>&1 | tee shadowsocks-all.log
+
+
+
 ```
 
 接下来会有几个参数需要选择，依次为：
