@@ -851,7 +851,7 @@ install_libsodium(){
         download "${libsodium_file}.tar.gz" "${libsodium_url}"
         tar zxf ${libsodium_file}.tar.gz
         cd ${libsodium_file} || exit
-        ./configure --prefix=/usr && make && make install
+        ./configure --prefix=/usr --host=arm  && make && make install
         if [ $? -ne 0 ]; then
             echo -e "[${red}Error${plain}] ${libsodium_file} install failed."
             install_cleanup
