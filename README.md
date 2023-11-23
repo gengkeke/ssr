@@ -1,17 +1,21 @@
 登录成功后，依次运行以下三条命令：
 
 ```shell
+yum install wget
+
 wget --no-check-certificate -O shadowsocks-all.sh https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks-all.sh
-
 chmod +x shadowsocks-all.sh
-
-# redhat 9 ->看这里  https://docs.fedoraproject.org/en-US/epel/
-
-# subscription-manager repos --enable codeready-builder-for-rhel-9-$(arch)-rpms
-# dnf install https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
-
+#redhat报错 使用AWS服务器 记得删除 install_dependencies方法中的  EPEL验证和curl包安装
 ./shadowsocks-all.sh 2>&1 | tee shadowsocks-all.log
 
+
+
+# redhat 9 ->看这里  https://docs.fedoraproject.org/en-US/epel/
+# subscription-manager repos --enable codeready-builder-for-rhel-9-$(arch)-rpms
+# dnf install https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
+yum install  https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
+wget https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
+rpm -ivh --nodeps epel-release-latest-9.noarch.rpm
 
 
 ```
