@@ -1,3 +1,33 @@
+连接到EC2，开启root登录：
+1.启动完新实例，下载密钥对密钥对登录
+```shell
+ssh -i "key.pem" ec2-user@ec2-54-82-23-18.compute-1.amazonaws.com
+```
+2.为root设置密码
+```shell
+sudo passwd root
+```
+3.切换到root权限
+```shell
+su root
+```
+4.修改ssh配置文件，允许密码登陆
+```shell
+vi /etc/ssh/sshd_config
+PasswordAuthentication yes
+PermitRootLogin yes
+UsePAM no
+```
+5.重启ssh
+```shell
+sudo /sbin/service sshd restart
+```
+6.为ec2-user设置密码
+```shell
+passwd ec2-user
+```
+
+
 登录成功后，依次运行以下三条命令：
 
 ```shell
@@ -5,7 +35,9 @@ yum install wget
 
 wget --no-check-certificate -O shadowsocks-all.sh https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks-all.sh
 chmod +x shadowsocks-all.sh
-#redhat报错 使用AWS服务器 记得删除 install_dependencies方法中的  EPEL验证和curl包安装
+
+#redhat报错 使用AWS服务器 记得删除 install_dependencies方法中的EPEL验证和【curl包安装】
+vi shadowsocks-all.sh
 ./shadowsocks-all.sh 2>&1 | tee shadowsocks-all.log
 
 
@@ -20,7 +52,7 @@ rpm -ivh --nodeps epel-release-latest-9.noarch.rpm
 
 ```
 
-接下来会有几个参数需要选择，依次为：
+接下来会有几个参数需要选择，依次为：【2,gengkeke921017,20001,8,5,1】
 
 1.提示选择哪个版本安装，我们输入2后按回车，即选择SSR安装。
 
